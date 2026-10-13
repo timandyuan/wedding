@@ -421,7 +421,7 @@
                     </select>
                 </div>
 
-                <!-- 5. 是否出席 Attendance Status (entry.813202715) -->
+               <!-- 5. 是否出席 Attendance Status (entry.813202715) -->
                 <div>
                     <label class="block text-sm font-semibold text-morandi-dark mb-2">
                         是否出席 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">ATTENDANCE</span> <span class="text-red-400">*</span>
@@ -429,57 +429,53 @@
                     <select name="entry.813202715" 
                             id="attendanceStatusSelect"
                             required 
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white">
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white cursor-pointer">
                         <option value="" disabled selected>請選擇是否能出席午宴</option>
                         <option value="參加">參加</option>
                         <option value="無法出席">無法出席</option>
                     </select>
                 </div>
 
-               <!-- 條件式顯示區域：當選擇「參加」時滑出 -->
-                <div id="conditionalFields" class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out border-t border-transparent space-y-6">
-                    <div class="pt-4 space-y-6">
-                        <!-- 6. 參加人數 Attendance Count (entry.1044024517) -->
-                        <div>
-                            <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                                參加午宴人數 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">GUESTS COUNT</span> <span class="text-red-400">*</span>
-                            </label>
-                            <input type="number" 
-                                   id="attendanceInput"
-                                   name="entry.1044024517" 
-                                   min="1" 
-                                   max="10" 
-                                   value="1"
-                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
-                        </div>
-
-                        <!-- 7. 飲食需求 Dietary Preference (entry.1616668953) -->
-                        <div>
-                            <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                                飲食需求 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">DIETARY REQUIREMENT</span>
-                            </label>
-                            <select name="entry.1616668953" 
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white">
-                                <option value="葷食" selected>葷食（無特殊限制）</option>
-                                <option value="素食">素食</option>
-                            </select>
-                        </div>
-
-                        <!-- 8. 兒童座椅 Baby Seats Count (entry.824483975) -->
-                        <div>
-                            <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                                兒童座椅需求數量 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">BABY SEATS</span>
-                            </label>
-                            <input type="number" 
-                                   name="entry.824483975" 
-                                   min="0" 
-                                   max="5" 
-                                   value="0"
-                                   placeholder="無需求請填 0" 
-                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
-                        </div>
-                    </div>
+                <!-- 6. 參加人數 Attendance Count (entry.1044024517) -->
+                <div>
+                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
+                        參加午宴人數 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">GUESTS COUNT</span>
+                    </label>
+                    <input type="number" 
+                           id="attendanceInput"
+                           name="entry.1044024517" 
+                           min="0" 
+                           max="10" 
+                           value="1"
+                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
                 </div>
+
+                <!-- 7. 飲食需求 Dietary Preference (entry.1616668953) -->
+                <div>
+                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
+                        飲食需求 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">DIETARY REQUIREMENT</span>
+                    </label>
+                    <select name="entry.1616668953" 
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white">
+                        <option value="葷食" selected>葷食（無特殊限制）</option>
+                        <option value="素食">素食</option>
+                    </select>
+                </div>
+
+                <!-- 8. 兒童座椅 Baby Seats Count (entry.824483975) -->
+                <div>
+                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
+                        兒童座椅需求數量 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">BABY SEATS</span>
+                    </label>
+                    <input type="number" 
+                           name="entry.824483975" 
+                           min="0" 
+                           max="5" 
+                           value="0"
+                           placeholder="無需求請填 0" 
+                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
+                </div>
+
 
                 <!-- 9. 祝福話語 Message (entry.1843764448) -->
                 <div>
