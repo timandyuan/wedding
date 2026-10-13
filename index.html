@@ -87,7 +87,7 @@
             margin: 6px auto;
         }
 
-        /* Accordion transition */
+        /* Accordion transition for Transportation */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
@@ -95,16 +95,15 @@
         }
         
         .accordion-content.open {
-            max-height: 1000px;
+            max-height: 500px;
             transition: max-height 0.5s ease-in-out;
         }
 
-        /* Subtle hero vignette */
+        /* Hero Vignette */
         .hero-vignette {
             background: linear-gradient(180deg, rgba(61,58,54,0.35) 0%, rgba(61,58,54,0.15) 50%, rgba(61,58,54,0.6) 100%);
         }
 
-        /* Smooth reveal animation simulation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -115,7 +114,10 @@
         }
     </style>
 </head>
-<body class="relative min-h-screen flex flex-col justify-between">
+<body class="relative min-h-screen flex flex-col justify-between pt-16 sm:pt-20">
+
+    <!-- Hidden Iframe for Silent Google Form Submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
     <!-- Navigation Bar -->
     <nav class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -151,34 +153,40 @@
             <a href="#details" class="mobile-nav-link block text-morandi-dark hover:text-morandi-gold py-2 border-b border-gray-100">
                 婚禮詳情 <span class="text-xs text-morandi-sage block mt-0.5">DETAILS</span>
             </a>
-            <a href="#rsvp" class="mobile-nav-link block text-morandi-dark hover:text-morandi-gold py-2">
+            <a href="#rsvp" class="mobile-nav-link block text-morandi-dark hover:text-morandi-gold py-2 border-b border-gray-100">
                 出席回函 <span class="text-xs text-morandi-sage block mt-0.5">RSVP</span>
+            </a>
+            <a href="#gallery" class="mobile-nav-link block text-morandi-dark hover:text-morandi-gold py-2">
+                婚紗相簿 <span class="text-xs text-morandi-sage block mt-0.5">GALLERY</span>
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative h-screen min-h-[650px] w-full flex items-center justify-center text-center overflow-hidden">
-        <!-- Background Image -->
+    <section id="hero" class="relative h-screen min-h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
+        <!-- Background Image with High Quality Fallback -->
         <div class="absolute inset-0 z-0">
-            <img src="./IMG_3781.jpg" alt="Tim and Yuan Wedding Cover" class="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 hover:scale-100" />
+            <img src="./IMG_3781.jpg" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80';" 
+                 alt="Tim and Yuan Wedding Cover" 
+                 class="w-full h-full object-cover object-center scale-105 transition-transform duration-10000" />
             <div class="absolute inset-0 hero-vignette"></div>
         </div>
 
         <!-- Hero Content -->
         <div class="relative z-10 px-4 max-w-4xl mx-auto text-white animate-fade-in flex flex-col items-center">
-            <p class="font-en text-lg sm:text-2xl font-light tracking-[0.3em] uppercase text-morandi-sand mb-3">
+            <p class="font-en text-lg sm:text-2xl font-light tracking-[0.3em] uppercase text-morandi-sand mb-3 drop-shadow">
                 Save Our Date
             </p>
             <h1 class="font-en text-5xl sm:text-7xl md:text-8xl font-normal tracking-wide my-2 drop-shadow-md">
                 Tim <span class="text-morandi-gold font-serif italic">&amp;</span> Yuan
             </h1>
             <div class="w-16 h-[1px] bg-morandi-gold/80 my-4"></div>
-            <p class="font-en text-base sm:text-xl tracking-[0.2em] mt-2 text-morandi-sand">
-                2027 . 04 . 17
+            <p class="font-en text-base sm:text-xl tracking-[0.2em] mt-2 text-morandi-sand drop-shadow">
+                2027 . 04 . 17 ｜ 午宴 Lunch Banquet
             </p>
 
-            <!-- Scroll indicator -->
+            <!-- Scroll Indicator -->
             <a href="#details" class="mt-12 sm:mt-16 flex flex-col items-center text-white/80 hover:text-morandi-gold transition-colors duration-300">
                 <span class="font-en text-xs tracking-widest uppercase mb-2">Scroll Down</span>
                 <i class="fa-solid fa-chevron-down animate-bounce text-sm"></i>
@@ -242,7 +250,7 @@
                 <div class="w-10 h-[1px] bg-morandi-gold mx-auto mt-3"></div>
             </div>
 
-            <!-- Key Info Grid (Vertical V-Card Style) -->
+            <!-- Key Info Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <!-- Date & Time Box -->
                 <div class="bg-morandi-cream/60 p-6 sm:p-8 rounded-2xl border border-morandi-gold/20 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
@@ -328,7 +336,8 @@
                         </div>
                     </div>
                 </div>
-                  <!-- Google Map Embed Container -->
+
+                <!-- Google Map Embed -->
                 <div class="mt-8 border border-morandi-gold/20 rounded-2xl overflow-hidden shadow-md bg-white">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.882191599388!2d121.55627257608828!3d25.08044733675971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ac714fb296ad%3A0xe5a3c9b78a05c308!2zMTA0OTFLYW9zaGl1bmcgQ2l0eSwgWmhvbmdzaGFuIERpc3RyaWN0LCBMZXF1YW4gMm5kIFJkLCAxOTnomZ8g6Ie65YyX6JCs6LGq6YWS5bqX!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw" 
@@ -344,9 +353,8 @@
             </div>
         </div>
     </section>
-    
 
-<!-- RSVP Section -->
+    <!-- RSVP Section -->
     <section id="rsvp" class="py-20 px-4 max-w-3xl mx-auto">
         <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-morandi-gold/20">
             <div class="text-center mb-10">
@@ -358,10 +366,7 @@
                 <p class="text-xs text-gray-500 mt-4">為方便統計宴席，請於 <span class="nowrap font-medium text-morandi-gold">2027 年 2 月 1 日</span> 前填寫完畢，謝謝您！</p>
             </div>
 
-            <!-- Hidden Iframe Target for Form Submission without Page Reload -->
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-            <!-- RSVP Google Form (Strict entry IDs alignment) -->
+            <!-- RSVP Google Form -->
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSfd1PO-g9qgcfyQ7puLaRA6pOP4ZTPaxJinK6iNM32rxYdmTg/formResponse" 
                   method="POST" 
                   target="hidden_iframe" 
@@ -383,7 +388,7 @@
                 <!-- 2. 電子郵件 Email (entry.667240178) -->
                 <div>
                     <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        電子郵件 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">EMAIL</span> <span class="text-red-400">*</span>
+                        電子郵件 / 聯絡方式 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">EMAIL</span> <span class="text-red-400">*</span>
                     </label>
                     <input type="email" 
                            name="entry.667240178" 
@@ -410,7 +415,7 @@
                     </label>
                     <select name="entry.1384868388" 
                             required 
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white">
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white cursor-pointer">
                         <option value="" disabled selected>請選擇您與新人的關係</option>
                         <option value="男方朋友">男方朋友</option>
                         <option value="女方朋友">女方朋友</option>
@@ -419,7 +424,7 @@
                     </select>
                 </div>
 
-               <!-- 5. 是否出席 Attendance Status (entry.813202715) -->
+                <!-- 5. 是否出席 Attendance Status (entry.813202715) -->
                 <div>
                     <label class="block text-sm font-semibold text-morandi-dark mb-2">
                         是否出席 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">ATTENDANCE</span> <span class="text-red-400">*</span>
@@ -454,7 +459,7 @@
                         飲食需求 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">DIETARY REQUIREMENT</span>
                     </label>
                     <select name="entry.1616668953" 
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white">
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white cursor-pointer">
                         <option value="葷食" selected>葷食（無特殊限制）</option>
                         <option value="素食">素食</option>
                     </select>
@@ -474,7 +479,6 @@
                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
                 </div>
 
-
                 <!-- 9. 祝福話語 Message (entry.1843764448) -->
                 <div>
                     <label class="block text-sm font-semibold text-morandi-dark mb-2">
@@ -482,7 +486,7 @@
                     </label>
                     <textarea name="entry.1843764448" 
                               rows="4" 
-                              placeholder="獻給 Tim & Yuan 的祝福" 
+                              placeholder="獻給 Tim & Yuan 的祝福點滴..." 
                               class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm"></textarea>
                 </div>
 
@@ -490,7 +494,7 @@
                 <div class="pt-4">
                     <button type="submit" 
                             id="submitBtn"
-                            class="w-full py-4 bg-morandi-gold hover:bg-[#c29363] text-white font-medium rounded-xl shadow-lg shadow-morandi-gold/20 transition-all duration-300 flex items-center justify-center gap-2 group">
+                            class="w-full py-4 bg-morandi-gold hover:bg-[#c29363] text-white font-medium rounded-xl shadow-lg shadow-morandi-gold/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
                         <span class="font-en tracking-widest text-base uppercase">Confirm &amp; Send</span>
                         <i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 transition-transform"></i>
                     </button>
@@ -498,7 +502,8 @@
             </form>
         </div>
     </section>
-      <!-- Photo Gallery Carousel Section (Positioned After RSVP) -->
+
+    <!-- Photo Gallery Carousel Section -->
     <section id="gallery" class="py-20 bg-morandi-cream/50 border-t border-morandi-sand/40">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center mb-12">
@@ -512,37 +517,37 @@
             <!-- Carousel Wrapper Container -->
             <div class="relative group max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-morandi-gold/20 bg-white">
                 
-                <!-- Main Carousel Image Slider (10 Photos) -->
+                <!-- Main Carousel Image Slider (10 Photos with High-Quality Fallbacks) -->
                 <div id="carouselTrack" class="flex transition-transform duration-500 ease-out cursor-pointer" title="點擊放大預覽">
                     
                     <!-- Photo 1 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
-                        <img src="./IMG＿3778.jpg" 
-                             onerror="this.onerror=null; this.src='./IMG_3778.jpg';" 
+                        <img src="./images/photo1.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 1" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
 
                     <!-- Photo 2 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
-                        <img src="./IMG_3778.jpg" 
-                             onerror="this.onerror=null; this.src='./IMG_3778.jpg';" 
+                        <img src="./images/photo2.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 2" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
 
                     <!-- Photo 3 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
-                        <img src="./IMG_3780.jpg" 
-                             onerror="this.onerror=null; this.src='./IMG_3780.jpg';" 
+                        <img src="./images/photo3.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 3" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
 
                     <!-- Photo 4 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
-                        <img src="./IMG_3781.jpg" 
-                             onerror="this.onerror=null; this.src='./IMG_3781.jpg';" 
+                        <img src="./images/photo4.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 4" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -550,7 +555,7 @@
                     <!-- Photo 5 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
                         <img src="./images/photo5.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1600&q=80';" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 5" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -558,7 +563,7 @@
                     <!-- Photo 6 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
                         <img src="./images/photo6.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80';" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 6" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -566,7 +571,7 @@
                     <!-- Photo 7 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
                         <img src="./images/photo7.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80';" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 7" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -574,7 +579,7 @@
                     <!-- Photo 8 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
                         <img src="./images/photo8.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80';" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 8" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -582,7 +587,7 @@
                     <!-- Photo 9 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
                         <img src="./images/photo9.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1600&q=80';" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 9" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -590,7 +595,7 @@
                     <!-- Photo 10 -->
                     <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/10] bg-gray-100">
                         <img src="./images/photo10.jpg" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1600&q=80';" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80';" 
                              alt="Tim & Yuan Wedding Photo 10" 
                              class="w-full h-full object-cover select-none gallery-img" />
                     </div>
@@ -598,10 +603,10 @@
                 </div>
 
                 <!-- Navigation Buttons (Prev / Next) -->
-                <button id="prevBtn" aria-label="Previous Slide" class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white text-morandi-dark hover:text-morandi-gold backdrop-blur-md shadow-md border border-morandi-gold/20 flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none z-10">
+                <button id="prevBtn" aria-label="Previous Slide" class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white text-morandi-dark hover:text-morandi-gold backdrop-blur-md shadow-md border border-morandi-gold/20 flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none z-10 cursor-pointer">
                     <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
                 </button>
-                <button id="nextBtn" aria-label="Next Slide" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white text-morandi-dark hover:text-morandi-gold backdrop-blur-md shadow-md border border-morandi-gold/20 flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none z-10">
+                <button id="nextBtn" aria-label="Next Slide" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white text-morandi-dark hover:text-morandi-gold backdrop-blur-md shadow-md border border-morandi-gold/20 flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none z-10 cursor-pointer">
                     <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
                 </button>
 
@@ -631,7 +636,7 @@
             <p class="text-sm text-gray-600 mb-6 leading-relaxed">
                 您的回函已成功送出！<br/>感謝您的用心填寫，Tim &amp; Yuan 期待與您相見！
             </p>
-            <button id="closeModalBtn" class="w-full py-3 bg-morandi-gold text-white rounded-xl font-medium shadow-md hover:bg-[#c29363] transition-colors">
+            <button id="closeModalBtn" class="w-full py-3 bg-morandi-gold text-white rounded-xl font-medium shadow-md hover:bg-[#c29363] transition-colors cursor-pointer">
                 關閉 CLOSE
             </button>
         </div>
@@ -639,7 +644,7 @@
 
     <!-- Lightbox Zoom Modal for Gallery -->
     <div id="lightboxModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <button id="closeLightboxBtn" aria-label="Close Lightbox" class="absolute top-5 right-5 text-white/80 hover:text-white text-3xl focus:outline-none z-50 p-2">
+        <button id="closeLightboxBtn" aria-label="Close Lightbox" class="absolute top-5 right-5 text-white/80 hover:text-white text-3xl focus:outline-none z-50 p-2 cursor-pointer">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center">
@@ -649,12 +654,19 @@
 
     <!-- Scripts -->
     <script>
-        // --- 1. Countdown Timer Logic ---
+        // --- 1. Robust Countdown Timer Engine ---
         const targetDate = new Date("2027-04-17T11:00:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const difference = targetDate - now;
+
+            const daysEl = document.getElementById("timer-days");
+            const hoursEl = document.getElementById("timer-hours");
+            const minsEl = document.getElementById("timer-minutes");
+            const secsEl = document.getElementById("timer-seconds");
+
+            if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
             if (difference > 0) {
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -662,383 +674,248 @@
                 const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                document.getElementById("timer-days").innerText = String(days).padStart(2, '0');
-                document.getElementById("timer-hours").innerText = String(hours).padStart(2, '0');
-                document.getElementById("timer-minutes").innerText = String(minutes).padStart(2, '0');
-                document.getElementById("timer-seconds").innerText = String(seconds).padStart(2, '0');
+                daysEl.innerText = String(days).padStart(2, '0');
+                hoursEl.innerText = String(hours).padStart(2, '0');
+                minsEl.innerText = String(minutes).padStart(2, '0');
+                secsEl.innerText = String(seconds).padStart(2, '0');
             } else {
-                document.getElementById("timer-days").innerText = "00";
-                document.getElementById("timer-hours").innerText = "00";
-                document.getElementById("timer-minutes").innerText = "00";
-                document.getElementById("timer-seconds").innerText = "00";
+                daysEl.innerText = "00";
+                hoursEl.innerText = "00";
+                minsEl.innerText = "00";
+                secsEl.innerText = "00";
             }
         }
 
-        // --- 2. Mobile Menu Toggle ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        // --- 2. Transportation Accordion Toggle Engine ---
+        function initAccordions() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.fa-chevron-down');
+                    const isOpen = content.classList.contains('open');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            if (isOpen) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            } else {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.classList.replace('fa-bars', 'fa-xmark');
-            }
-        });
+                    // Close all other accordions for clean UX
+                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+                    document.querySelectorAll('.accordion-header .fa-chevron-down').forEach(i => i.classList.remove('rotate-180'));
 
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            });
-        });
-
-        // --- 3. Smart Form Conditional Logic ---
-        const attendanceStatusSelect = document.getElementById('attendanceStatusSelect');
-        const conditionalFields = document.getElementById('conditionalFields');
-        const attendanceInput = document.getElementById('attendanceInput');
-
-        function toggleConditionalFields() {
-            if (!attendanceStatusSelect || !conditionalFields) return;
-            const value = attendanceStatusSelect.value;
-            
-            if (value === '參加') {
-                conditionalFields.classList.remove('max-h-0', 'opacity-0', 'border-transparent');
-                conditionalFields.classList.add('max-h-[800px]', 'opacity-100', 'border-morandi-sand/40');
-                if (attendanceInput) {
-                    if (!attendanceInput.value || attendanceInput.value === "0") {
-                        attendanceInput.value = "1";
+                    if (!isOpen) {
+                        content.classList.add('open');
+                        if (icon) icon.classList.add('rotate-180');
                     }
-                    attendanceInput.setAttribute('required', 'required');
-                }
-            } else {
-                conditionalFields.classList.remove('max-h-[800px]', 'opacity-100', 'border-morandi-sand/40');
-                conditionalFields.classList.add('max-h-0', 'opacity-0', 'border-transparent');
-                if (attendanceInput) {
-                    attendanceInput.value = "0";
-                    attendanceInput.removeAttribute('required');
-                }
-            }
-        }
-
-        if (attendanceStatusSelect) {
-            attendanceStatusSelect.addEventListener('change', toggleConditionalFields);
-            attendanceStatusSelect.addEventListener('input', toggleConditionalFields);
-            // 頁面載入時自動執行一次
-            toggleConditionalFields();
-        }
-
-        // --- 4. Hidden Iframe Form Submission Handler ---
-        let formSubmitted = false;
-        const rsvpForm = document.getElementById('rsvpForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const thankYouModal = document.getElementById('thankYouModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const hiddenIframe = document.getElementById('hidden_iframe');
-
-        function handleIframeLoad() {
-            if (formSubmitted) {
-                thankYouModal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
-                
-                rsvpForm.reset();
-                toggleConditionalFields();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<span class="font-en tracking-widest text-base uppercase">Confirm &amp; Send</span><i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 transition-transform"></i>`;
-                
-                formSubmitted = false;
-            }
-        }
-
-        if (hiddenIframe) {
-            hiddenIframe.addEventListener('load', handleIframeLoad);
-        }
-
-        if (rsvpForm) {
-            rsvpForm.addEventListener('submit', () => {
-                formSubmitted = true;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送出中 SENDING...`;
+                });
             });
         }
 
-        if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', () => {
-                thankYouModal.classList.add('opacity-0', 'pointer-events-none');
-                modalContent.classList.add('scale-95');
-            });
+        // --- 3. Mobile Navigation Menu Toggle ---
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    if (isOpen) {
+                        mobileMenu.classList.add('hidden');
+                        if (menuIcon) menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                    } else {
+                        mobileMenu.classList.remove('hidden');
+                        if (menuIcon) menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                    }
+                });
+
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        if (menuIcon) menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                    });
+                });
+            }
         }
 
-        // --- 5. Photo Gallery Carousel Logic (Dynamic Dots & 10 Photos) ---
-        const track = document.getElementById('carouselTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('carouselDots');
-        const galleryImgs = document.querySelectorAll('.gallery-img');
-        const lightboxModal = document.getElementById('lightboxModal');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+        // --- 4. Silent Google Form Submission & Attendance Dynamic Rules ---
+        function initFormLogic() {
+            let formSubmitted = false;
+            const rsvpForm = document.getElementById('rsvpForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const thankYouModal = document.getElementById('thankYouModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const hiddenIframe = document.getElementById('hidden_iframe');
+            const attendanceStatusSelect = document.getElementById('attendanceStatusSelect');
+            const attendanceInput = document.getElementById('attendanceInput');
 
-        let currentIndex = 0;
-        const totalSlides = galleryImgs.length;
-        let autoPlayInterval = null;
+            // Dynamic rule: Auto set guest count to 0 when "無法出席"
+            if (attendanceStatusSelect && attendanceInput) {
+                attendanceStatusSelect.addEventListener('change', (e) => {
+                    if (e.target.value === '無法出席') {
+                        attendanceInput.value = '0';
+                    } else if (e.target.value === '參加' && attendanceInput.value === '0') {
+                        attendanceInput.value = '1';
+                    }
+                });
+            }
 
-        function renderDots() {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.className = `w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${i === 0 ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white'}`;
-                dot.setAttribute('data-index', i);
-                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-                dot.addEventListener('click', () => {
-                    updateCarousel(i);
+            if (hiddenIframe) {
+                hiddenIframe.addEventListener('load', () => {
+                    if (formSubmitted) {
+                        thankYouModal.classList.remove('opacity-0', 'pointer-events-none');
+                        modalContent.classList.remove('scale-95');
+                        
+                        rsvpForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<span class="font-en tracking-widest text-base uppercase">Confirm &amp; Send</span><i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 transition-transform"></i>`;
+                        
+                        formSubmitted = false;
+                    }
+                });
+            }
+
+            if (rsvpForm) {
+                rsvpForm.addEventListener('submit', () => {
+                    formSubmitted = true;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送出中 SENDING...`;
+                });
+            }
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', () => {
+                    thankYouModal.classList.add('opacity-0', 'pointer-events-none');
+                    modalContent.classList.add('scale-95');
+                });
+            }
+        }
+
+        // --- 5. Carousel & Lightbox Modal Engine ---
+        function initGalleryCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+            const galleryImgs = document.querySelectorAll('.gallery-img');
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+
+            if (!track || galleryImgs.length === 0) return;
+
+            let currentIndex = 0;
+            const totalSlides = galleryImgs.length;
+            let autoPlayInterval = null;
+
+            function renderDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all cursor-pointer ${i === 0 ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white'}`;
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => {
+                        updateCarousel(i);
+                        startAutoPlay();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateCarousel(index) {
+                currentIndex = (index + totalSlides) % totalSlides;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentIndex) {
+                        dot.className = 'w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all bg-white scale-125';
+                    } else {
+                        dot.className = 'w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all bg-white/40 hover:bg-white';
+                    }
+                });
+            }
+
+            function startAutoPlay() {
+                stopAutoPlay();
+                autoPlayInterval = setInterval(() => {
+                    updateCarousel(currentIndex + 1);
+                }, 4500);
+            }
+
+            function stopAutoPlay() {
+                if (autoPlayInterval) clearInterval(autoPlayInterval);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    updateCarousel(currentIndex - 1);
                     startAutoPlay();
                 });
-                dotsContainer.appendChild(dot);
             }
-        }
 
-        function updateCarousel(index) {
-            currentIndex = (index + totalSlides) % totalSlides;
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    updateCarousel(currentIndex + 1);
+                    startAutoPlay();
+                });
+            }
 
-            const dots = dotsContainer.querySelectorAll('button');
-            dots.forEach((dot, idx) => {
-                if (idx === currentIndex) {
-                    dot.className = 'w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all bg-white scale-125';
-                } else {
-                    dot.className = 'w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all bg-white/40 hover:bg-white';
+            // Touch Swipe Support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoPlay();
+            }, { passive: true });
+
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 40) {
+                    updateCarousel(currentIndex + 1);
+                } else if (touchEndX - touchStartX > 40) {
+                    updateCarousel(currentIndex - 1);
                 }
+                startAutoPlay();
+            }, { passive: true });
+
+            // Lightbox Zoom Logic
+            galleryImgs.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxModal.classList.remove('opacity-0', 'pointer-events-none');
+                });
             });
-        }
 
-        function startAutoPlay() {
-            stopAutoPlay();
-            autoPlayInterval = setInterval(() => {
-                updateCarousel(currentIndex + 1);
-            }, 4500);
-        }
+            if (closeLightboxBtn) {
+                closeLightboxBtn.addEventListener('click', () => {
+                    lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+                });
+            }
 
-        function stopAutoPlay() {
-            if (autoPlayInterval) clearInterval(autoPlayInterval);
-        }
+            if (lightboxModal) {
+                lightboxModal.addEventListener('click', (e) => {
+                    if (e.target === lightboxModal) {
+                        lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                });
+            }
 
-        prevBtn.addEventListener('click', () => {
-            updateCarousel(currentIndex - 1);
+            renderDots();
             startAutoPlay();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            updateCarousel(currentIndex + 1);
-            startAutoPlay();
-        });
-
-        // Touch Swipe Support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        track.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            stopAutoPlay();
-        }, { passive: true });
-
-        track.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-            startAutoPlay();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const threshold = 40;
-            if (touchStartX - touchEndX > threshold) {
-                updateCarousel(currentIndex + 1);
-            } else if (touchEndX - touchStartX > threshold) {
-                updateCarousel(currentIndex - 1);
-            }
         }
 
-        // Lightbox Zoom Logic
-        galleryImgs.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightboxModal.classList.remove('opacity-0', 'pointer-events-none');
-            });
-        });
-
-        closeLightboxBtn.addEventListener('click', () => {
-            lightboxModal.classList.add('opacity-0', 'pointer-events-none');
-        });
-
-        lightboxModal.addEventListener('click', (e) => {
-            if (e.target === lightboxModal) {
-                lightboxModal.classList.add('opacity-0', 'pointer-events-none');
-            }
-        });
-
-
-
-    <!-- Footer -->
-    <footer class="bg-morandi-cream border-t border-morandi-gold/20 py-8 text-center text-xs text-morandi-soft space-y-2">
-        <p class="font-en text-sm tracking-widest text-morandi-dark">Tim &amp; Yuan Wedding 2027</p>
-        <p class="font-en">The Best Tee-mate &copy; All Rights Reserved.</p>
-    </footer>
-
-    <!-- Thank You Modal Notification -->
-    <div id="thankYouModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl border border-morandi-gold/30 transform scale-95 transition-transform duration-300" id="modalContent">
-            <div class="w-16 h-16 bg-morandi-gold/10 text-morandi-gold rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-            <h3 class="font-en text-2xl text-morandi-dark font-semibold mb-2">Thank You!</h3>
-            <p class="text-sm text-gray-600 mb-6 leading-relaxed">
-                您的回函已成功送出！<br/>感謝您的用心填寫，Tim &amp; Yuan 期待與您相見！
-            </p>
-            <button id="closeModalBtn" class="w-full py-3 bg-morandi-gold text-white rounded-xl font-medium shadow-md hover:bg-[#c29363] transition-colors">
-                關閉 CLOSE
-            </button>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        // --- 1. Countdown Timer Logic ---
-        const targetDate = new Date("2027-04-17T11:00:00").getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                document.getElementById("timer-days").innerText = String(days).padStart(2, '0');
-                document.getElementById("timer-hours").innerText = String(hours).padStart(2, '0');
-                document.getElementById("timer-minutes").innerText = String(minutes).padStart(2, '0');
-                document.getElementById("timer-seconds").innerText = String(seconds).padStart(2, '0');
-            } else {
-                document.getElementById("timer-days").innerText = "00";
-                document.getElementById("timer-hours").innerText = "00";
-                document.getElementById("timer-minutes").innerText = "00";
-                document.getElementById("timer-seconds").innerText = "00";
-            }
-        }
-
-        // --- 2. Mobile Menu Toggle ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            if (isOpen) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            } else {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.classList.replace('fa-bars', 'fa-xmark');
-            }
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            });
-        });
-
-        // --- 3. Accordion Interactivity ---
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('.fa-chevron-down');
-                
-                const isOpen = content.classList.contains('open');
-
-                // Close all other accordions
-                document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-                document.querySelectorAll('.accordion-header .fa-chevron-down').forEach(i => i.style.transform = 'rotate(0deg)');
-
-                // Toggle target accordion
-                if (!isOpen) {
-                    content.classList.add('open');
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-
-        // --- 4. Smart Form Conditional Logic ---
-        const attendanceInput = document.getElementById('attendanceInput');
-        const conditionalFields = document.getElementById('conditionalFields');
-        const dietarySelect = document.getElementById('dietarySelect');
-        const babySeatSelect = document.getElementById('babySeatSelect');
-
-        attendanceInput.addEventListener('input', () => {
-            const count = parseInt(attendanceInput.value, 10);
-            if (!isNaN(count) && count > 0) {
-                conditionalFields.classList.remove('hidden');
-            } else {
-                conditionalFields.classList.add('hidden');
-            }
-        });
-
-        // --- 5. Hidden Iframe Form Submission Handler ---
-        let formSubmitted = false;
-
-        const rsvpForm = document.getElementById('rsvpForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const thankYouModal = document.getElementById('thankYouModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const hiddenIframe = document.getElementById('hidden_iframe');
-
-        function handleIframeLoad() {
-            if (formSubmitted) {
-                // Show modal
-                thankYouModal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
-                
-                // Reset form state
-                rsvpForm.reset();
-                conditionalFields.classList.add('hidden');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<span class="font-en tracking-widest text-base uppercase">Confirm &amp; Send</span><i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 transition-transform"></i>`;
-                
-                formSubmitted = false;
-            }
-        }
-
-        if (hiddenIframe) {
-            hiddenIframe.addEventListener('load', handleIframeLoad);
-        }
-
-        rsvpForm.addEventListener('submit', () => {
-            formSubmitted = true;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送出中 SENDING...`;
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            thankYouModal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.add('scale-95');
-        });
-
-        // --- 6. Initialize on Load ---
-        window.onload = function() {
+        // --- 6. Initialize Everything Immediately ---
+        document.addEventListener('DOMContentLoaded', () => {
             updateCountdown();
             setInterval(updateCountdown, 1000);
-        };
+            initAccordions();
+            initMobileMenu();
+            initFormLogic();
+            initGalleryCarousel();
+        });
+
+        // Instant Fallback Call
+        updateCountdown();
     </script>
 </body>
 </html>
