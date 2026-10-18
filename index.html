@@ -397,7 +397,7 @@
                 <!-- Field 3: Email / Contact (Optional) - entry.667240178 -->
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
-                        電子郵件 / 聯絡方式
+                        電子郵件
                     </label>
                     <input type="email" name="entry.667240178" 
                            placeholder="請輸入您的電子郵件（選填）" 
@@ -416,8 +416,6 @@
                         <option value="新娘親戚">新娘親戚</option>
                         <option value="新郎朋友">新郎朋友</option>
                         <option value="新娘朋友">新娘朋友</option>
-                        <option value="新郎同事">新郎同事</option>
-                        <option value="新娘同事">新娘同事</option>
                         <option value="其他關係">其他關係</option>
                     </select>
                 </div>
@@ -431,7 +429,7 @@
                             class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition bg-white">
                         <option value="" disabled selected>請選擇出席狀態</option>
                         <option value="排除萬難 一定出席">排除萬難 一定出席</option>
-                        <option value="精神同在 祝您幸福">精神同在 祝您幸福</option>
+                        <option value="無法出席 獻上滿滿祝福">無法出席 獻上滿滿祝福</option>
                     </select>
                 </div>
 
@@ -461,6 +459,8 @@
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
                             兒童座椅數量
+                        <input type="number" id="veg-input" name="entry.1616668953" min="0" max="10" value="0" 
+                               placeholder="無兒童座椅請填 0"     
                         </label>
                         <input type="number" id="chair-input" name="entry.824483975" min="0" max="5" value="0" 
                                class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
@@ -473,7 +473,7 @@
                         祝福話語
                     </label>
                     <textarea name="entry.1843764448" rows="3" 
-                              placeholder="請留下您對新人的祝福（選填）..." 
+                              placeholder="要講什麼現在講 不要在我背後講" 
                               class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition"></textarea>
                 </div>
 
