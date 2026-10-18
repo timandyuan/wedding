@@ -185,7 +185,9 @@
             <p class="font-en text-base sm:text-xl tracking-[0.2em] mt-2 text-morandi-sand drop-shadow">
                 2027 . 04 . 17 ｜ 午宴 Lunch Banquet
             </p>
-
+            <p class="font-en text-lg sm:text-2xl font-light tracking-[0.3em] uppercase text-morandi-sand mb-3 drop-shadow">
+                Every decision and every mile brought us closer to forever.
+            </p>
             <!-- Scroll Indicator -->
             <a href="#details" class="mt-12 sm:mt-16 flex flex-col items-center text-white/80 hover:text-morandi-gold transition-colors duration-300">
                 <span class="font-en text-xs tracking-widest uppercase mb-2">Scroll Down</span>
@@ -354,151 +356,132 @@
         </div>
     </section>
 
-    <!-- RSVP Section -->
-    <section id="rsvp" class="py-20 px-4 max-w-3xl mx-auto">
-        <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-morandi-gold/20">
-            <div class="text-center mb-10">
-                <h2 class="font-en text-3xl sm:text-4xl text-morandi-gold font-light tracking-widest uppercase">
-                    R S V P
-                </h2>
-                <p class="text-sm text-morandi-sage tracking-widest mt-1">出席回函與祝福</p>
-                <div class="w-10 h-[1px] bg-morandi-gold mx-auto mt-3"></div>
-                <p class="text-xs text-gray-500 mt-4">為方便統計宴席，請於 <span class="nowrap font-medium text-morandi-gold">2027 年 2 月 1 日</span> 前填寫完畢，謝謝您！</p>
+  <!-- RSVP Section -->
+    <section id="rsvp" class="py-20 px-6 bg-morandi-cream relative">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-en text-3xl md:text-4xl text-morandi-dark mb-2">RSVP</h2>
+                <p class="text-xs text-morandi-soft tracking-widest uppercase mb-4">出席回覆</p>
+                <p class="text-xs text-morandi-dark/70">請於 2026 年 12 月 31 日前填寫完畢，感謝您的撥冗配合！</p>
             </div>
 
-            <!-- RSVP Google Form -->
+            <!-- Hidden Iframe for Silent Form Submission -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showThankYouModal(); }"></iframe>
+
+            <!-- Form -->
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSfd1PO-g9qgcfyQ7puLaRA6pOP4ZTPaxJinK6iNM32rxYdmTg/formResponse" 
                   method="POST" 
                   target="hidden_iframe" 
-                  id="rsvpForm" 
-                  class="space-y-6">
+                  onsubmit="submitted=true;" 
+                  class="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-morandi-sand/60 space-y-6">
 
-                <!-- 1. 姓名 Name (entry.762865357) -->
+                <!-- Field 1: Name (Required) - entry.762865357 -->
                 <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        姓名 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">NAME</span> <span class="text-red-400">*</span>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                        姓名 <span class="text-red-400">*</span>
                     </label>
-                    <input type="text" 
-                           name="entry.762865357" 
-                           required 
+                    <input type="text" name="entry.762865357" required 
                            placeholder="請輸入您的姓名" 
-                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
+                           class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
                 </div>
 
-                <!-- 2. 電子郵件 Email (entry.667240178) -->
+                <!-- Field 2: Phone / Backup Contact (Required) - entry.736645914 -->
                 <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        電子郵件 / 聯絡方式 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">EMAIL</span> <span class="text-red-400">*</span>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                        聯絡電話 <span class="text-red-400">*</span>
                     </label>
-                    <input type="email" 
-                           name="entry.667240178" 
-                           required 
-                           placeholder="example@mail.com" 
-                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
-                </div>
-
-                <!-- 3. 聯絡電話 Phone (entry.736645914) -->
-                <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        聯絡電話 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">PHONE</span>
-                    </label>
-                    <input type="tel" 
-                           name="entry.736645914" 
+                    <input type="tel" name="entry.736645914" required 
                            placeholder="0912-345-678" 
-                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
+                           class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
                 </div>
 
-                <!-- 4. 賓客關係 Relationship (entry.1384868388) -->
+                <!-- Field 3: Email / Contact (Optional) - entry.667240178 -->
                 <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        賓客關係 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">RELATIONSHIP</span> <span class="text-red-400">*</span>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                        電子郵件 / 聯絡方式
                     </label>
-                    <select name="entry.1384868388" 
-                            required 
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white cursor-pointer">
-                        <option value="" disabled selected>請選擇您與新人的關係</option>
-                        <option value="男方朋友">男方朋友</option>
-                        <option value="女方朋友">女方朋友</option>
-                        <option value="男方親戚">男方親戚</option>
-                        <option value="女方親戚">女方親戚</option>
+                    <input type="email" name="entry.667240178" 
+                           placeholder="請輸入您的電子郵件（選填）" 
+                           class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
+                </div>
+
+                <!-- Field 4: Guest Relationship - entry.1384868388 -->
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                        賓客關係 <span class="text-red-400">*</span>
+                    </label>
+                    <select name="entry.1384868388" required 
+                            class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition bg-white">
+                        <option value="" disabled selected>請選擇賓客關係</option>
+                        <option value="新郎親戚">新郎親戚</option>
+                        <option value="新娘親戚">新娘親戚</option>
+                        <option value="新郎朋友">新郎朋友</option>
+                        <option value="新娘朋友">新娘朋友</option>
+                        <option value="新郎同事">新郎同事</option>
+                        <option value="新娘同事">新娘同事</option>
+                        <option value="其他關係">其他關係</option>
                     </select>
                 </div>
 
-                <!-- 5. 是否出席 Attendance Status (entry.813202715) -->
+                <!-- Field 5: Attendance Status - entry.813202715 -->
                 <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        是否出席 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">ATTENDANCE</span> <span class="text-red-400">*</span>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                        是否出席 <span class="text-red-400">*</span>
                     </label>
-                    <select name="entry.813202715" 
-                            id="attendanceStatusSelect"
-                            required 
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white cursor-pointer">
-                        <option value="" disabled selected>請選擇是否能出席午宴</option>
-                        <option value="參加">參加</option>
-                        <option value="無法出席">無法出席</option>
+                    <select id="attendance-select" name="entry.813202715" required 
+                            class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition bg-white">
+                        <option value="" disabled selected>請選擇出席狀態</option>
+                        <option value="排除萬難 一定出席">排除萬難 一定出席</option>
+                        <option value="精神同在 祝您幸福">精神同在 祝您幸福</option>
                     </select>
                 </div>
 
-                <!-- 6. 參加人數 Attendance Count (entry.1044024517) -->
-                <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        參加午宴人數 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">GUESTS COUNT</span>
-                    </label>
-                    <input type="number" 
-                           id="attendanceInput"
-                           name="entry.1044024517" 
-                           min="0" 
-                           max="10" 
-                           value="1"
-                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
+                <!-- Dynamic Attendance Details Container -->
+                <div id="attending-fields" class="space-y-6 pt-2 border-t border-dashed border-morandi-sand">
+                    
+                    <!-- Field 6: Attendance Count - entry.1044024517 -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                            參加人數 (包含您本人)
+                        </label>
+                        <input type="number" id="count-input" name="entry.1044024517" min="1" max="10" value="1" 
+                               class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
+                    </div>
+
+                    <!-- Field 7: Vegetarian Guests Count - entry.1616668953 -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                            同行親友共幾位吃素
+                        </label>
+                        <input type="number" id="veg-input" name="entry.1616668953" min="0" max="10" value="0" 
+                               placeholder="無素食需求請填 0" 
+                               class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
+                    </div>
+
+                    <!-- Field 8: High Chairs Count - entry.824483975 -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                            兒童座椅數量
+                        </label>
+                        <input type="number" id="chair-input" name="entry.824483975" min="0" max="5" value="0" 
+                               class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition">
+                    </div>
                 </div>
 
-                <!-- 7. 飲食需求 Dietary Preference (entry.1616668953) -->
+                <!-- Field 9: Blessing Messages (Optional) - entry.1843764448 -->
                 <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        飲食需求 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">DIETARY REQUIREMENT</span>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-morandi-dark mb-2">
+                        祝福話語
                     </label>
-                    <select name="entry.1616668953" 
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm bg-white cursor-pointer">
-                        <option value="葷食" selected>葷食（無特殊限制）</option>
-                        <option value="素食">素食</option>
-                    </select>
+                    <textarea name="entry.1843764448" rows="3" 
+                              placeholder="請留下您對新人的祝福（選填）..." 
+                              class="w-full px-4 py-3 rounded-xl border border-morandi-sand focus:outline-none focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold text-sm transition"></textarea>
                 </div>
 
-                <!-- 8. 兒童座椅 Baby Seats Count (entry.824483975) -->
-                <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        兒童座椅需求數量 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">BABY SEATS</span>
-                    </label>
-                    <input type="number" 
-                           name="entry.824483975" 
-                           min="0" 
-                           max="5" 
-                           value="0"
-                           placeholder="無需求請填 0" 
-                           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm">
-                </div>
-
-                <!-- 9. 祝福話語 Message (entry.1843764448) -->
-                <div>
-                    <label class="block text-sm font-semibold text-morandi-dark mb-2">
-                        祝福話語 <span class="font-en text-xs text-morandi-gold uppercase font-normal tracking-wider">MESSAGE</span>
-                    </label>
-                    <textarea name="entry.1843764448" 
-                              rows="4" 
-                              placeholder="獻給 Tim & Yuan 的祝福點滴..." 
-                              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-gold focus:ring-2 focus:ring-morandi-gold/20 outline-none transition-all text-sm"></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="pt-4">
-                    <button type="submit" 
-                            id="submitBtn"
-                            class="w-full py-4 bg-morandi-gold hover:bg-[#c29363] text-white font-medium rounded-xl shadow-lg shadow-morandi-gold/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
-                        <span class="font-en tracking-widest text-base uppercase">Confirm &amp; Send</span>
-                        <i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </div>
+                <button type="submit" 
+                        class="w-full py-4 bg-morandi-gold text-white font-semibold text-sm tracking-widest rounded-xl shadow-lg hover:bg-morandi-soft transition duration-300 mt-4">
+                    確認送出
+                </button>
             </form>
         </div>
     </section>
